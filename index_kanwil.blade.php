@@ -257,7 +257,7 @@
                                                            class="pilih_konfigurasi_berita btn btn-warning btn-sm"
                                                            id_berita="{{ $d->id_berita }}"
                                                            kode_satker="{{ $satker->kode_satker }}"
-                                                           style="margin-right: 5px; border-radius: 5px; ">
+                                                           style="margin-right: 5px; border-radius: 5px; " title="Generate Laporan?">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                  height="24" viewBox="0 0 24 24" fill="none"
                                                                  stroke="currentColor" stroke-width="2"
@@ -270,7 +270,7 @@
                                                         </a>
                                                         <a href="#" class="tampilkandetail btn btn-warning btn-sm"
                                                            id_berita="{{ $d->id_berita }}"
-                                                           style="margin-right: 5px; border-radius: 5px; background-color: dodgerblue">
+                                                           style="margin-right: 5px; border-radius: 5px; background-color: dodgerblue" title="Lihat Detail?">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  class="icon icon-tabler icon-tabler-file-description"
                                                                  width="24" height="24" viewBox="0 0 24 24"
@@ -299,7 +299,7 @@
                                                         <a href="#" class="editberita btn-sm"
                                                            style="background-color: #3ebc16; border-radius: 5px;
                                                            color: white"
-                                                           id_berita="{{ $d->id_berita }}">
+                                                           id_berita="{{ $d->id_berita }}" title="Edit Berita?">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  class="icon icon-tabler icon-tabler-edit" width="24"
                                                                  height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -318,7 +318,8 @@
                                                             @csrf
                                                             {{--                                                            @method('DELETE')--}}
                                                             <a style="height: 20px; border-radius: 5px;"
-                                                               class="btn btn-danger btn-sm delete-confirm-berita">
+                                                               class="btn btn-danger btn-sm delete-confirm-berita"
+                                                               title="Hapus Berita?">
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                      class="icon icon-tabler icon-tabler-trash-filled"
                                                                      width="24" height="24" viewBox="0 0 24 24"

@@ -971,10 +971,15 @@ class DatasatkerController extends Controller
 
                 $number = 0;
                 /*link berita website*/
+//                foreach ($dtBerita as $index_web => $news_web){
+//                    echo $news->nama_berita."<br>";
+//                }
+//                die;
+                //echo "<pre>"; print_r($dtBerita); die;
                 foreach ($dtBerita as $index_web => $news_web) {
                     $number += 1;
-                    $text = $section->addText($number . ". " . $news->nama_berita, $firstStyle);
-                    $text = $section->addText($news->website, $secondtStyle);
+                    $text = $section->addText($number . ". " . $news_web->nama_berita, $firstStyle);
+                    $text = $section->addText($news_web->website, $secondtStyle);
                     $text = $section->addText("");
                 }
 
@@ -1591,7 +1596,9 @@ class DatasatkerController extends Controller
         $getmedia = DB::table('mediapartner')
             ->where('kode_satker_penjalin', $kode_satker)
             ->get();
-        return view('beritasatker.edit', compact('getmedia', 'berita', 'kode_satker'));
+        $getdivisi = DB::table("divisi")->get();
+
+        return view('beritasatker.edit', compact('getmedia', 'getdivisi','berita', 'kode_satker'));
     }
 
     public function hapuslink(Request $request)
@@ -1686,7 +1693,10 @@ class DatasatkerController extends Controller
     {
         //echo "update berita woy"; die;
         //return $id_berita;
+        //echo "kode divisi : ".$request->kode_divisi;
+        //die;
         $id = $id_berita;
+        $kode_divisi = $request->kode_divisi;
         //return $id; die;
         $kode_satker = DB::table('berita')->where('id_berita', $id_berita)->first()->kode_satker;
         //echo "<pre>"; print_r($kode_satker);die;
@@ -1913,6 +1923,7 @@ class DatasatkerController extends Controller
         try {
             $data_to_update = [
                 "kode_satker" => $request->kode_satker,
+                "kode_divisi" => $request->kode_divisi,
                 "tgl_update" => date('Y-m-d'),
                 "nama_berita" => $request->judul_berita_satker,
                 "facebook" => $request->facebook,
